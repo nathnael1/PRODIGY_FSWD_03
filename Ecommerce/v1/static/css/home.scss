@@ -1,0 +1,59 @@
+$icon: #000;
+.ticon{
+    background-color: $icon;
+    padding:10px;
+    width:50px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height:50px;
+    margin-right: 10px;
+
+}
+.title{
+    font-size: 2.2rem;
+    color: $icon;
+    font-weight: bolder;
+   
+}
+i{
+    color: $icon;
+    font-size: 1.2rem;
+ 
+}
+.navbar-nav a{
+    color: $icon;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+footer{
+
+    padding:10px;
+    margin-top:30px;
+    h3{
+        font-weight: bolder;;
+    }
+    ul{
+        margin-left: -5%;
+        li{
+            list-style-type: none;
+            a{
+                text-decoration: none;
+                color:$icon;
+            }
+        }
+    }
+    ul.icons{
+        display:flex;
+        justify-content: center;
+        gap:10px;
+    }
+}
+@media (max-width: 767.98px) {
+    footer{
+        ul.icons {
+            justify-content: flex-start;
+        }
+    }
+
+}

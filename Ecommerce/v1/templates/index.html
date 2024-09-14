@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %} Ecommerce{% endblock %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU=" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<script src="{% static 'js/iconFocus.js' %}"></script>
+<script src="{% static 'js/carousle.js' %}"></script>
+{% endblock %}
+{% block body %}
+<div class="container-fluid hero">
+    <div class="row ">
+        <div class="left  p-5 col-md-6 col-12">
+            <p>Lorem ipsum dolor sit amet%</p>
+            <h1>Lorem ipsum dolor sit amet, consectetu.</h1>
+            <div class="search">
+                <input type="text" id = "input_search" placeholder="Search">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="right col-lg-6 d-none d-lg-block">
+            <section class="splide" aria-labelledby="carousel-heading">
+    
+              
+              
+                <div class="splide__track">
+                      <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img class = "m-auto" src="{% static 'images/fashion.jpg' %}" alt="Fashion">
+                          </li>
+                          <li class="splide__slide">
+                            <img src="{% static 'images/furniture.avif' %}" alt="Furniture">
+                          </li>
+                          <li class="splide__slide">
+                            <img src="{% static 'images/electronics.avif' %}" alt="Electronics">
+                          </li>
+                      </ul>
+                </div>
+              </section>
+        </div>
+    </div>
+</div>
+<div id="product_info">
+  <div class="product_left">
+    <h1>Lorem Ipsum</br>amet</h1>
+  </div>
+  <div class="product_right">
+    <p class = "px-3 active">All</p>
+    <p class = "px-3 ">Clothes</p>
+    <p class = "px-3 ">Electronics</p>
+    <p class = "px-3 ">Furnitures</p>
+  </div>
+</div>
+
+
+<section id="products">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="{% static 'images/hoodie.webp' %}" alt="">
+          <div class="card_body">
+            <p class="card_title">Hoodie </p>
+            <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
+            <p class="card_price">$80</p>
+         
+            <div class="card_cart">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <p>Add to cart</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="{% static 'images/hoodie.webp' %}" alt="">
+          <div class="card_body">
+            <p class="card_title">Hoodie </p>
+            <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
+            <p class="card_price">$80</p>
+            <div class="card_cart">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <p>Add to cart</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="{% static 'images/hoodie.webp' %}" alt="">
+          <div class="card_body">
+            <p class="card_title">Hoodie </p>
+            <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
+            <p class="card_price">$80</p>
+            <div class="card_cart">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <p>Add to cart</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="{% static 'images/hoodie.webp' %}" alt="">
+          <div class="card_body">
+            <p class="card_title">Hoodie </p>
+            <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
+            <p class="card_price">$80</p>
+            <div class="card_cart">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <p>Add to cart</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="{% static 'images/hoodie.webp' %}" alt="">
+          <div class="card_body">
+            <p class="card_title">Hoodie </p>
+            <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
+            <p class="card_price">$80</p>
+            <div class="card_cart">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <p>Add to cart</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
