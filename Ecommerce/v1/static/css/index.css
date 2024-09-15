@@ -73,6 +73,7 @@ body {
 .hero .row .right .splide {
   display: flex;
   width: 88%;
+  margin-top: 10%;
   justify-content: center;
   align-items: center;
   box-shadow: #000 0px 0px 20px;

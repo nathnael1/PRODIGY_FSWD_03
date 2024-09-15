@@ -1,16 +1,24 @@
 $icon: #000;
+.wrapper{
+    display:flex;
+    flex-direction: column;
+    min-height:100vh;
+}
+.content{
+    flex:1;
+}
 .ticon{
     background-color: $icon;
     padding:10px;
-    width:50px;
+    width:40px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    height:50px;
+    height:40px;
     margin-right: 10px;
 
 }
 .title{
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     color: $icon;
     font-weight: bolder;
    
@@ -22,12 +30,12 @@ i{
 }
 .navbar-nav a{
     color: $icon;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bolder;
     margin-right: 20px;
 }
 footer{
-
+    
     padding:10px;
     margin-top:30px;
     h3{

@@ -1,0 +1,48 @@
+h2 {
+  margin-top: 3%;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.addc {
+  width: 80%;
+  margin: 5% auto;
+  margin-top: 1%;
+  box-shadow: 0px 0px 5px #000;
+  border-radius: 15px;
+  padding: 15px;
+}
+.addc .form-group {
+  margin: 5% 0;
+}
+
+.differ {
+  display: none !important;
+}
+
+input[type=file] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #FCA311;
+  background-color: #E5E5E5;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-left: 0;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  cursor: pointer;
+}
+
+.file-upload-container {
+  text-align: left;
+}
+
+.btn {
+  background-color: #FCA311;
+  color: #E5E5E5;
+}/*# sourceMappingURL=sell.css.map */

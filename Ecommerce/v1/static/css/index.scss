@@ -81,6 +81,7 @@ body{
             .splide{
                 display:flex;
                 width:88%;
+                margin-top: 10%;
                 justify-content: center;
                 align-items: center;
                 box-shadow:$icon 0px 0px 20px;
@@ -91,6 +92,7 @@ body{
                     display:inline-block;
                     width: 100%;
                     height: 100%;
+                    
                     border-radius: 10px;
                   
                 }
