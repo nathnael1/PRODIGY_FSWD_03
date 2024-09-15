@@ -158,3 +158,19 @@ body{
                 transform: scale(1.1);
             }
         }
+        @media (max-width: 767.98px) {
+        .search2{
+            width:90%;
+            margin:2% auto;
+            
+            display:flex;
+            input{
+
+                width:90%;
+
+            }
+            i{
+                font-size: 0.7rem;
+            }
+        }
+    }
