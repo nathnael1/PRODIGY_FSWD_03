@@ -3,6 +3,7 @@
 {% block title %} Ecommerce{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+<script src="{% static 'js/iconFocus.js' %}"></script>
 {% endblock %}
 {% block body %}
 <div class="banner">
@@ -10,7 +11,7 @@
 </div>
 <h1 class="title2">Lorem Ipsum</h1>
 <div class="search2">
-    <input type="text" placeholder="Keywords">
+    <input type="text" id = "input_search" placeholder="Keywords">
     <i class="fas fa-search"></i>
 </div>
 <div class="container-fluid category2">
