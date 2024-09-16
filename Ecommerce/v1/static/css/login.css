@@ -93,4 +93,18 @@ a {
 
 .differ {
   display: none !important;
+}
+
+.error {
+  color: #f00;
+  text-align: left;
+  display: block;
+  margin: 5px;
+}
+
+.success {
+  color: #0f0;
+  text-align: left;
+  display: block;
+  margin: 5px;
 }/*# sourceMappingURL=login.css.map */

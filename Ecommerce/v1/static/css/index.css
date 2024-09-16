@@ -112,7 +112,6 @@ body {
   background-color: #E5E5E5;
   color: #fff;
   border-radius: 15px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
@@ -171,7 +170,6 @@ body {
   display: flex;
   gap: 10px;
   padding-top: 5px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   border: 2px solid #14213d;
@@ -190,16 +188,7 @@ body {
   cursor: pointer;
 }
 #products .container-fluid .card:hover > img {
-  -webkit-animation: card 0.5s ease-in forwards;
-          animation: card 0.5s ease-in forwards;
-}
-@-webkit-keyframes card {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
+  animation: card 0.5s ease-in forwards;
 }
 @keyframes card {
   from {
@@ -208,5 +197,4 @@ body {
   to {
     transform: scale(1.1);
   }
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

@@ -4,14 +4,16 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
+{% block login %}Login{% endblock %}
 {% block body %}
 <div class="container">
     <div class="left-part">
         <img src="{% static 'images/bg.png' %}" alt="Left Image">
     </div>
     <div class="right-part">
-        <form>
-            <h2>Login</h2>
+        <form action = "{% url 'login' %}" method="post">
+            {%csrf_token%}
+            <h2 class="text-center">Login</h2>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -20,6 +22,20 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <span class="error">
+                {%if errors %}
+                {{errors.error}}
+                {% endif %}
+            </span>
+            <span class="success">
+                {% if messages %}
+                {% for message in messages %}
+                    
+                        {{ message }}
+                   
+                {% endfor %}
+            {% endif %}
+            </span>
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="{% url 'signup' %}">Signup</a></p>

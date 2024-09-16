@@ -124,7 +124,6 @@ body {
   display: flex;
   gap: 10px;
   padding-top: 5px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   border: 2px solid #14213d;
@@ -144,17 +143,7 @@ body {
   cursor: pointer;
 }
 .card:hover > img {
-  -webkit-animation: card 0.5s ease-in forwards;
-          animation: card 0.5s ease-in forwards;
-}
-
-@-webkit-keyframes card {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
+  animation: card 0.5s ease-in forwards;
 }
 
 @keyframes card {
@@ -177,5 +166,4 @@ body {
   .search2 i {
     font-size: 0.7rem;
   }
-}
-/*# sourceMappingURL=shop.css.map */
+}/*# sourceMappingURL=shop.css.map */

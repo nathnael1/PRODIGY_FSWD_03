@@ -32,7 +32,7 @@
                     <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
                     <a href="{% url 'shop' %}" class="nav-item nav-link">Shop</a>
                     <a href="{% url 'sell' %}" class="nav-item nav-link">Sell Product</a>
-                    <a href="{% url 'login' %}" class="nav-item nav-link">Logout</a>
+                    <a href="{% url 'login' %}" class="nav-item nav-link">{% block login %}{% endblock %}</a>
                 </div>
                 <div class="d-flex differ m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i id = "search"class="fas fa-search "></i></button>

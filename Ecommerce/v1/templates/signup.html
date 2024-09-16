@@ -5,14 +5,16 @@
 <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 <script src = "{% static 'js/image.js' %}"></script>
 {% endblock %}
+{% block login %}Login{% endblock %}
 {% block body %}
 <div class="container">
     <div class="left-part">
         <img src="{% static 'images/bg.png' %}" alt="Left Image">
     </div>
     <div class="right-part">
-        <form>
-            <h2>Signup</h2>
+        <form action = "{% url 'signup' %} " enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <h2 class="text-center">Signup</h2>
             <div class="form-group">
                 <label for="full_name">Full name</label>
                 <input type="text" id="full_name" name="full_name" required>
@@ -22,13 +24,18 @@
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
+
             <div class="my-2 file-upload-container">
                 <label for="file-upload" class="custom-file-upload">
                     Image Upload
@@ -36,7 +43,12 @@
                 <span id="file-upload-filename"></span>
                 <input id="file-upload" name = "image" type="file" onchange="displayFileName()" />
             </div>
-            <button type="submit">Login</button>
+            <span class="error">
+                {%if errors %}
+                {{errors.error}}
+                {% endif %}
+            </span>
+            <button type="submit">Signup</button>
         </form>
         <p>Have an account? <a href="{% url 'login' %}">Login</a></p>
     </div>
