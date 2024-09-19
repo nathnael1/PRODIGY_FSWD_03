@@ -12,107 +12,152 @@
 </div>
 <h1 class="title2">Lorem Ipsum</h1>
 <div class="search2">
-    <input type="text" id = "input_search" placeholder="Keywords">
-    <i class="fas fa-search"></i>
+  <form id="searchForm" action="/v1/searchShop" method="POST" style="display: none;">
+    <input type="hidden" name="search" id="searchInput">
+    {% csrf_token %}
+  </form>
+  <input type="text" id="input_search" placeholder="Keywords">
+  <i id="searchicon" class="fas fa-search"></i>
 </div>
 <div class="container-fluid category2">
     <div class="row">
     <div class=" col-12 col-md-3 left">
         <h1>Categories</h1>
         <ul>
-            <li class = "cur"><i class=" fas fa-tshirt"></i> Clothing</li>
-            <li><i class="fas fa-mobile-alt"></i> Electronics</li>
-            <li><i class="fas fa-couch"></i> Furniture</li>
+          <li id = "alltab" class = "active"><i class=" fas fa-tshirt"></i> All</li>
+            <li id = "clothestab" ><i class=" fas fa-tshirt"></i> Clothing</li>
+            <li id = "electronicstab"><i class="fas fa-mobile-alt"></i> Electronics</li>
+            <li id = "furniturestab"><i class="fas fa-couch"></i> Furniture</li>
         </ul>
     </div>
+ 
     <div class="col-12 col-md-9 right">
-        <div class="row mx-5">
+        
+      <div id="all" class="row mx-5 product-category">
+          {% for product in products %}
             <div class="col-6 col-md-4 col-lg-3">
               <div class="card">
-                <img src="{% static 'images/hoodie.webp' %}" alt="">
+                <img src="{{product.image.url}}" alt="">
                 <div class="card_body">
-                  <p class="card_title">Hoodie </p>
-                  <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
-                  <p class="card_price">$80</p>
+                  <p class="card_title">{{product.name}} </p>
+                  <p class="card_description">{{product.description}}</p>
+                  <p class="card_price">${{product.price}}</p>
                
                   <div class="card_cart">
                     <i class="fa fa-shopping-bag fa-2x"></i>
-                    <p>Add to cart</p>
+                    <p data-id="{{ product.id }}">Add to cart</p>
                   </div>
                 </div>
       
-              </div>
-            </div>
-      
-            <div class="col-6 col-md-4 col-lg-3">
-              <div class="card">
-                <img src="{% static 'images/hoodie.webp' %}" alt="">
-                <div class="card_body">
-                  <p class="card_title">Hoodie </p>
-                  <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
-                  <p class="card_price">$80</p>
-                  <div class="card_cart">
-                    <i class="fa fa-shopping-bag fa-2x"></i>
-                    <p>Add to cart</p>
-                  </div>
+              </div><!--end of card-->
+            </div> <!-- end of col-->
+        {%endfor %}
+      </div><!--end of row-->
+
+      <div id="electronics" class="row mx-5 product-category disabled">
+        {% for product in products %}
+        {% if product.category == "electronics" %}
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card">
+              <img src="{{product.image.url}}" alt="">
+              <div class="card_body">
+                <p class="card_title">{{product.name}} </p>
+                <p class="card_description">{{product.description}}</p>
+                <p class="card_price">${{product.price}}</p>
+             
+                <div class="card_cart">
+                  <i class="fa fa-shopping-bag fa-2x"></i>
+                  <p data-id="{{ product.id }}">Add to cart</p>
                 </div>
-      
+              </div>
+    
+            </div><!--end of card-->
+          </div> <!-- end of col-->
+          {% endif %}
+      {%endfor %}
+    </div><!--end of row-->
+
+    <div id="furniture" class="row mx-5 product-category disabled">
+      {% for product in products %}
+      {% if product.category == "furniture" %}
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card">
+            <img src="{{product.image.url}}" alt="">
+            <div class="card_body">
+              <p class="card_title">{{product.name}} </p>
+              <p class="card_description">{{product.description}}</p>
+              <p class="card_price">${{product.price}}</p>
+           
+              <div class="card_cart">
+                <i class="fa fa-shopping-bag fa-2x"></i>
+                <p data-id="{{ product.id }}">Add to cart</p>
               </div>
             </div>
-      
-            <div class="col-6 col-md-4 col-lg-3">
-              <div class="card">
-                <img src="{% static 'images/hoodie.webp' %}" alt="">
-                <div class="card_body">
-                  <p class="card_title">Hoodie </p>
-                  <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
-                  <p class="card_price">$80</p>
-                  <div class="card_cart">
-                    <i class="fa fa-shopping-bag fa-2x"></i>
-                    <p>Add to cart</p>
-                  </div>
-                </div>
-      
-              </div>
+  
+          </div><!--end of card-->
+        </div> <!-- end of col-->
+        {% endif %}
+    {%endfor %}
+  </div><!--end of row-->
+
+  <div id="clothes" class="row mx-5 product-category disabled">
+    {% for product in products %}
+    {% if product.category == "clothes" %}
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="{{product.image.url}}" alt="">
+          <div class="card_body">
+            <p class="card_title">{{product.name}} </p>
+            <p class="card_description">{{product.description}}</p>
+            <p class="card_price">${{product.price}}</p>
+         
+            <div class="card_cart">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <p data-id="{{ product.id }}">Add to cart</p>
             </div>
-      
-      
-            <div class="col-6 col-md-4 col-lg-3">
-              <div class="card">
-                <img src="{% static 'images/hoodie.webp' %}" alt="">
-                <div class="card_body">
-                  <p class="card_title">Hoodie </p>
-                  <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
-                  <p class="card_price">$80</p>
-                  <div class="card_cart">
-                    <i class="fa fa-shopping-bag fa-2x"></i>
-                    <p>Add to cart</p>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3">
-              <div class="card">
-                <img src="{% static 'images/hoodie.webp' %}" alt="">
-                <div class="card_body">
-                  <p class="card_title">Hoodie </p>
-                  <p class="card_description">Lorem Ipsum Integer vel lacus eu odio eleifend feugiat. Sed aliquam erat nec odio vehicula. Incendentu aliwqu erat elefiend</p>
-                  <p class="card_price">$80</p>
-                  <div class="card_cart">
-                    <i class="fa fa-shopping-bag fa-2x"></i>
-                    <p>Add to cart</p>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-      
           </div>
-    </div>
-    </div>
-</div>
+
+        </div><!--end of card-->
+      </div> <!-- end of col-->
+      {% endif %}
+  {%endfor %}
+</div><!--end of row-->
+<div class="pagination">
+  <span class="step-links">
+      {% if products.has_previous %} 
+          <span><a href="?page={{ products.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a></span>
+      {% endif %}
+
+     <span>
+      {{ products.number }} of 
+      {% if products.paginator.num_pages != products.number %}
+      <a href="?page={{ products.paginator.num_pages }}"> {{ products.paginator.num_pages }}</a>
+      {% else %}
+      {{ products.paginator.num_pages }}
+      {% endif %}
+      </span>
+
+
+     
+
+      {% if products.has_next %}
+          <span>
+              <a href="?page={{ products.next_page_number }}"><i class="fas fa-angle-double-right"></i></a>
+          </span>
+         
+      {% endif %}
+  </span>
+</div> 
+  
+      </div><!--end of right-->
+      </div><!--end of big row-->    
+      
+         
+</div><!--end of container-->
 {% endblock %}
 {%block js %}
+<script src = "{% static 'js/cart.js' %}"></script>
 <script src = "{% static 'js/cartNumber.js' %}"></script>
+<script src = "{% static 'js/category.js' %}"></script>
+<script src = "{% static 'js/search.js' %}"></script>
 {%endblock %}

@@ -6,9 +6,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login,logout
 from django.contrib.auth import get_user_model
 from .models import Products
+from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
 from decimal import Decimal
-
+from django.db import transaction
 User = get_user_model()
 def index(request):
     if request.user.is_authenticated:
@@ -22,15 +23,40 @@ def index(request):
     return HttpResponseRedirect(reverse('login'))
 def shop(request):
     if request.user.is_authenticated:
-        products = Products.objects.all()
+        products = Products.objects.all().order_by('-created_at')
+        paginator = Paginator(products,8)
+        page_number = request.GET.get('page')
+        products = paginator.get_page(page_number)
         return render(request,"shop.html",{"products":products})
     return render(request,"shop.html")
+
+def confirmPurchase(request):
+    if request.user.is_authenticated:
+        user = User.objects.get(username=request.user.username) 
+        items = user.cart.all()
+        with transaction.atomic():
+            user.cart.remove(*items)
+        messages.success(request, "Bought Successfully")
+        return JsonResponse({"message":"success"})
+def searchShop(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            data = request.POST.get('search')
+            if data:  # Ensure data is not None or empty
+                products = Products.objects.filter(name__icontains=data)
+                paginator = Paginator(products, 8)
+                page_number = request.GET.get('page')
+                products = paginator.get_page(page_number)
+                return render(request, "shop.html", {"products": products})
+            else:
+                return render(request, "shop.html", {"products": []})
+    return HttpResponseRedirect(reverse('login'))
+
 def cart(request):
     if request.user.is_authenticated:
         user = User.objects.get(username=request.user.username)
-
         cart_items = user.cart.all()
-    
+
         return render(request,"cart.html",{"cart_items":cart_items})
 
 def sell(request):
@@ -130,7 +156,6 @@ def cartNumber(request):
         subtotal = Decimal('0.00')
         for item in items:
             subtotal+=Decimal(str(item.price))
-        print(subtotal)
         return JsonResponse({"number":number,"subtotal":subtotal})
     return JsonResponse({"number":0})
 @csrf_exempt

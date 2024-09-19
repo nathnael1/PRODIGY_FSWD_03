@@ -27,14 +27,15 @@ body {
 }
 .hero .row {
   padding: 10px;
-  height: 70vh;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .hero .row .left p {
   font-size: 1.8rem;
   color: #000;
 }
 .hero .row .left h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: #000;
 }
 .hero .row .right img {
@@ -76,7 +77,7 @@ body {
   margin-top: 10%;
   justify-content: center;
   align-items: center;
-  box-shadow: #000 0px 0px 20px;
+  box-shadow: #000 0px 0px 10px;
   border-radius: 10px;
 }
 .hero .row .right .splide .splide__track {
@@ -153,6 +154,7 @@ body {
   margin-bottom: 10%;
   text-align: center;
   font-size: 1.5rem;
+  height: 60px;
   font-weight: bold;
 }
 #products .container-fluid .card .card_body .card_description {

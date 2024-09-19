@@ -10,6 +10,15 @@
 <div class="banner">
     <h1>Cart</h1>
 </div>
+<span class="success">
+    {% if messages %}
+    {% for message in messages %}
+        
+            {{ message }}
+       
+    {% endfor %}
+{% endif %}
+</span>
 <div class="container table2">
     <div class="row">
         <div class="col-md-12">
@@ -53,9 +62,18 @@
             <span>Total</span>
             <span id = "total"></span>
         </div>
-        <button class="proceed-checkout">Checkout</button>
+        <button class="proceed-checkout" id = "confirm">Checkout</button>
     </div>
 </div>
+<div id="confirmPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Confirm Purchase</h2>
+        <p>Total Amount: <span id="popupTotal"></span></p>
+        <button id="confirmPurchase">Confirm</button>
+    </div>
+</div>
+
 
 {% endblock %}
 {% block js %}

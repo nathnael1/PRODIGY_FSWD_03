@@ -59,6 +59,13 @@ footer{
         gap:10px;
     }
 }
+.profile{
+    border-radius: 10px;
+    width:50px;
+}
+.profile:hover{
+    cursor:pointer;
+}
 @media (max-width: 767.98px) {
     footer{
         ul.icons {

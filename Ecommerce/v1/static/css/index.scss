@@ -30,14 +30,14 @@ body{
     .row{
      
         padding:10px;
-        height: 70vh;
+        height: fit-content;
         .left{
             p{
                 font-size: 1.8rem;
                 color:$icon;
             }
             h1{
-                font-size: 2.5rem;
+                font-size: 3.5rem;
                 color:$icon;
             }
         }
@@ -84,7 +84,7 @@ body{
                 margin-top: 10%;
                 justify-content: center;
                 align-items: center;
-                box-shadow:$icon 0px 0px 20px;
+                box-shadow:$icon 0px 0px 10px;
                 border-radius: 10px;
                 .splide__track{
                     border-radius: 10px;
@@ -159,13 +159,10 @@ body{
             >img{
                 width:100%;
                 height:200px;
-            
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
             }
             .card_body{
-
-            
                 padding:5px;
                 padding-bottom: 10px;
                 border-top:none;
@@ -176,6 +173,7 @@ body{
                     margin-bottom: 10%;
                     text-align: center;
                     font-size:1.5rem;
+                    height:60px;
                     font-weight: bold;
                 }
                 .card_description{
