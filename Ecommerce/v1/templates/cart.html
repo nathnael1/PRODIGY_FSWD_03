@@ -19,68 +19,18 @@
                         <th>Product</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Handle</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for cart_item in cart_items %}
                     <tr class="mt-4">
-                        <td class = "fix"><img src="{%static 'images/hoodie.webp' %}" alt="Product Image"></td>
-                        <td>Product Name</td>
-                        <td>$10.00</td>
-                        <td class = "fix">
-                            <div class="quantity">
-                                <button class="decrement">-</button>
-                                <input type="text" value="1">
-                                <button class="increment">+</button>
-                            </div>
-                        </td>
-                        <td>$10.00</td>
-                        <td><i class="fas fa-times"></i></td>
+                        <td class = "fix"><img src="{{cart_item.image.url}}" alt="Product Image"></td>
+                        <td>{{cart_item.name}}</td>
+                        <td>${{cart_item.price}}</td>
+                        <td><i data-id = "{{cart_item.id}}"class="del fas fa-times"></i></td>
                     </tr>
-                    <tr class="mt-4">
-                        <td class = "fix"><img src="{%static 'images/hoodie.webp' %}" alt="Product Image"></td>
-                        <td>Product Name</td>
-                        <td>$10.00</td>
-                        <td class = "fix">
-                            <div class="quantity">
-                                <button class="decrement">-</button>
-                                <input type="text" value="1">
-                                <button class="increment">+</button>
-                            </div>
-                        </td>
-                        <td>$10.00</td>
-                        <td><i class="fas fa-times"></i></td>
-                    </tr>
-                    <tr class="mt-4">
-                        <td class = "fix"><img src="{%static 'images/hoodie.webp' %}" alt="Product Image"></td>
-                        <td>Product Name</td>
-                        <td>$10.00</td>
-                        <td class = "fix">
-                            <div class="quantity">
-                                <button class="decrement">-</button>
-                                <input type="text" value="1">
-                                <button class="increment">+</button>
-                            </div>
-                        </td>
-                        <td>$10.00</td>
-                        <td><i class="fas fa-times"></i></td>
-                    </tr>
-                    <tr class="mt-4">
-                        <td class = "fix"><img src="{%static 'images/hoodie.webp' %}" alt="Product Image"></td>
-                        <td>Product Name</td>
-                        <td>$10.00</td>
-                        <td class = "fix">
-                            <div class="quantity">
-                                <button class="decrement">-</button>
-                                <input type="text" value="1">
-                                <button class="increment">+</button>
-                            </div>
-                        </td>
-                        <td>$10.00</td>
-                        <td><i class="fas fa-times"></i></td>
-                    </tr>
+                  {%endfor%}
                 </tbody>
             </table>
         </div>
@@ -92,7 +42,7 @@
         <h1>Cart Total</h1>
         <div class="subtotal">
             <span>Subtotal:</span>
-            <span>$96.00</span>
+            <span id = "subtotal"></span>
         </div>
         <div class="delivery">
             <span>Delivery</span>
@@ -101,10 +51,14 @@
         </div>
         <div class="total">
             <span>Total</span>
-            <span>$99.00</span>
+            <span id = "total"></span>
         </div>
         <button class="proceed-checkout">Checkout</button>
     </div>
 </div>
 
+{% endblock %}
+{% block js %}
+<script src = "{% static 'js/cartNumber.js' %}"></script>
+<script src = "{% static 'js/cart.js' %}"></script>
 {% endblock %}

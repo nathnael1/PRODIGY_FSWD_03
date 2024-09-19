@@ -81,4 +81,8 @@ body {
 }
 .cartWrapper .cart-total .proceed-checkout:hover {
   cursor: pointer;
+}
+
+.del:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=cart.css.map */
