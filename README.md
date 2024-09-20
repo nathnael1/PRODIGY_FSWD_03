@@ -15,7 +15,7 @@ PRODIGY_FSWD_03 is a web application developed for a local store, enabling custo
    git clone https://github.com/nathnael1/PRODIGY_FSWD_03.git
 2. Navigate to the project directory  
     ```sh
-    cd PRODIGY_FSWD_03
+    cd PRODIGY_FSWD_03/Ecommerce
 3. Apply the migrations  
     ```sh
     python manage.py migrate
