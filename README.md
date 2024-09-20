@@ -21,4 +21,4 @@ PRODIGY_FSWD_03 is a web application developed for a local store, enabling custo
     python manage.py migrate
 4. Run the development server  
     ```sh
-    python manage.py runserer
+    python manage.py runserver
